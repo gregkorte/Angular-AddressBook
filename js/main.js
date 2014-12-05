@@ -1,14 +1,15 @@
 ;(function(){
   'use strict';
 
-	angular.module('todoApp', [//For importing other mods
+	angular.module('addBooApp', [//For importing other mods
 		])
-	.controller('TodoController', function(){
+	.controller('AddressController', function(){
 		var vm = this;
 		vm.tasks = [
 			{
 				priority: 'High', 
-				name: '1st task', 
+				firstName: 'foo', 
+        lastName: 'bar',
 				desc: '1st task desc', 
 				due: '1st due date'
 			},
