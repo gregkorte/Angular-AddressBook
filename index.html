@@ -11,6 +11,10 @@
 <body>
 <div class="container" ng-controller="AddressController as addCtrl">  
   <h1>Address Book</h1>
+  <ul id="main-nav">
+    <li><a ng-click="addCtrl.displayEntry()">New Entry</a></li>
+    <li><a ng-click="addCtrl.displayRecords()">Records</a></li>
+  </ul>
   <div class="newRecord">
     <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
@@ -67,10 +71,11 @@
 
     </form>
   </div>
-  <div class="recordList">
+  <div class="recordList" >
     <ul>
-      <li ng-repeat="record in addCtrl.records" ng-click="console.log('Hi')">{{ record.firstName }} {{ record.lastName }}
-      <div class="recordTable">
+      <li ng-repeat="record in addCtrl.records" >
+      <a ng-click="addCtrl.recordIndex[$index]=!addCtrl.recordIndex[$index]">{{ record.firstName }} {{ record.lastName }} </a>
+      <div class="recordTable" ng-show="addCtrl.recordIndex[$index]" class="ng-hide">
         <table>
           <thead>
             <tr>
