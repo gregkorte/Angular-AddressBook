@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US" ng-app="todoApp">
+<html lang="en-US" ng-app="addBooApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,30 +10,58 @@
 </head>
 <body>
 
-  <div class="container" ng-controller="TodoController as todoCtrl">
-  <h1>Todo List</h1>
-  <form name="myForm" ng-submit="myForm.$valid && todoCtrl.addNewTask()" novalidate>
-    <div class="form-group" ng-class="{'has-error': !todoCtrl.newTask.name}">
-      <label class="control-label">Name:</label>
-      <input class="form-control" type ="text" ng-model="todoCtrl.newTask.name" required />
+  <div class="container" ng-controller="AddressController as addCtrl">
+  <h1>Address Book</h1>
+  <form name="addressForm" ng-submit="address.$valid && addCtrl.addNewTask()" novalidate>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.name}">
+      <label class="control-label">First Name:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.name" required />
     </div>
-    <div class="form-group" ng-class="{'has-error': !todoCtrl.newTask.desc}">
-      <label class="control-label">Description:</label>
-      <input class="form-control" type ="text" ng-model="todoCtrl.newTask.desc" required />
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.desc}">
+      <label class="control-label">Last Name:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.desc" required />
     </div>
-    <div class="form-group" ng-class="{'has-error': !todoCtrl.newTask.due}">
-      <label class="control-label">Due Date:</label>
-      <input class="form-control" type ="date" ng-model="todoCtrl.newTask.due" required />
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Address:</label>
+      <input class="form-control" type ="text" ng-model="addCtrl.newTask.due" required />
     </div>
-    <div class="form-group">
-      <label class="control-label">Priority:</label><br />
-      <select ng-model="todoCtrl.newTask.priority">
-      <option value="{{val}}" ng-repeat="(val, text) in todoCtrl.priorityOptions">
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">City:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">State:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Zip Code:</label>
+      <input class="form-control shorten" type ="date" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Phone:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Github:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Twitter:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <div class="form-group" ng-class="{'has-error': !addCtrl.newTask.due}">
+      <label class="control-label">Photo:</label>
+      <input class="form-control shorten" type ="text" ng-model="addCtrl.newTask.due" required />
+    </div>
+    <!-- <div class="form-group">
+      <label class="control-label">City:</label><br />
+      <select ng-model="addCtrl.newTask.priority">
+      <option value="{{val}}" ng-repeat="(val, text) in addCtrl.priorityOptions">
         {{text}}
       </option>
       </select>
-    </div>
-    <input type="submit" value="Add Task" ng-disabled="myForm.$invalid" />
+    </div> -->
+    <input type="submit" value="Add Task" ng-disabled="addressForm.$invalid" />
 
     <a href="#">Sort</a>
 
@@ -49,12 +77,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="task in todoCtrl.tasks">
+      <tr ng-repeat="task in addCtrl.tasks">
       <td>{{task.priority}}</td>
       <td>{{task.name}}</td>
       <td>{{task.desc}}</td>
       <td>{{task.due | date:'date'}}</td>
-      <td><button ng-click="todoCtrl.removeTask(task)">Delete</button></td>
+      <td><button ng-click="addCtrl.removeTask(task)">Delete</button></td>
       </tr>
     </tbody>
   </table>

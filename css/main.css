@@ -1,5 +1,6 @@
 form {
-	width: 250px;
+	max-width: 650px;
+	margin: 0 20px;
 	padding: 20px;
 	background: rgba(200, 200, 40, .2);
 	border-radius: 10px;
@@ -7,6 +8,12 @@ form {
 }
 input {
 	margin: 3px 0 10px;
+}
+.form-group {
+	display: inline-block;
+}
+.shorten {
+	width: 200px;
 }
 table {
 	margin: 20px 0;
