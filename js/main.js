@@ -15,7 +15,7 @@
 				zip: "sdfsd",
 				phone: "asdf",
 				email: "jhgj",
-				github: "sdfdg", 
+				github: "sdfdg",
 				twitter: "dfg",
 				facebook: "dfgdfg",
 				photo: ""
@@ -29,7 +29,7 @@
 				zip: "sdf",
 				phone: "gwt2345",
 				email: "jhgj",
-				github: "sdf", 
+				github: "sdf",
 				twitter: "aasdf",
 				facebook: "sdf",
 				photo: ""
@@ -42,22 +42,22 @@
 				state: "sdfsdf",
 				zip: "sdf",
 				phone: "sdf",
-				email: "jhgj", 
-				github: "sdf", 
+				email: "jhgj",
+				github: "sdf",
 				twitter: "sdf",
 				facebook: "sdf",
 				photo: ""
 			}
 		]
-    
+
     vm.recordIndex = [];
-    
+
     vm.displayEntry = function(){
-    	
+
     };
 
     vm.displayRecords = function(){
-    
+
     };
 
     vm.showRecord = function(index){
