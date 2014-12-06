@@ -8,6 +8,8 @@ form {
 }
 input {
 	margin: 3px 0 10px;
+  width: 50%;
+  display: inline-block;
 }
 .form-group {
 	display: inline-block;
@@ -17,6 +19,7 @@ input {
 }
 table {
 	margin: 20px 0;
+  
 }
 th, td {
 	width: 150px;
@@ -24,4 +27,14 @@ th, td {
 }
 th {
 	background: rgba(100, 100, 200, .2);
+}
+
+.recordList li {
+  list-style: none;
+}
+
+#main-nav li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 50px;
 }
