@@ -11,51 +11,6 @@
 <body>
 <div class="container" ng-controller="AddressController as addCtrl">  
   <h1>Address Book</h1>
-<<<<<<< HEAD
-  <div class="newRecord">
-  <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
-      <label class="control-label">First Name:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.firstName" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.lastName}">
-      <label class="control-label">Last Name:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.lastName" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.address}">
-      <label class="control-label">Address:</label>
-      <input class="form-control" type ="text" ng-model="addCtrl.newRecord.address" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.city}">
-      <label class="control-label">City:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.city" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.state}">
-      <label class="control-label">State:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.state" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.zip}">
-      <label class="control-label">Zip Code:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.zip" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.phone}">
-      <label class="control-label">Phone:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.phone" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.github}">
-      <label class="control-label">Github:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.github" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.twitter}">
-      <label class="control-label">Twitter:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.twitter" required />
-    </div>
-    <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
-      <label class="control-label">Photo:</label>
-      <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.photo" required />
-    </div>
-    <!-- <div class="form-group">
-=======
   <ul id="main-nav">
     <li><a ng-click="addCtrl.displayEntry()">New Entry</a></li>
     <li><a ng-click="addCtrl.displayRecords()">Records</a></li>
@@ -102,26 +57,9 @@
         <label class="control-label">Photo:</label>
         <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.photo" required />
       </div>
-      <!-- <div class="form-group">
->>>>>>> f747d85f355be59917444de1f953498c72ad896a
-      <label class="control-label">City:</label><br />
-      <select ng-model="addCtrl.newRecord.priority">
-      <option value="{{val}}" ng-repeat="(val, text) in addCtrl.priorityOptions">
-        {{text}}
-      </option>
-      </select>
-    </div> -->
+      
       <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
 
-<<<<<<< HEAD
-    <a href="#">Sort</a>
-  </form>
-  </div>
-  <div class="recordList">
-    <ul>
-      <li ng-repeat="record in addCtrl.records">{{ record.firstName }} {{ record.lastName }}
-      <div class="recordTable ">
-=======
       <a href="#">Sort</a>
 
     </form>
@@ -131,7 +69,6 @@
       <li ng-repeat="record in addCtrl.records" >
       <a ng-click="addCtrl.recordIndex[$index]=!addCtrl.recordIndex[$index]">{{ record.firstName }} {{ record.lastName }} </a>
       <div class="recordTable" ng-show="addCtrl.recordIndex[$index]" class="ng-hide">
->>>>>>> f747d85f355be59917444de1f953498c72ad896a
         <table>
           <thead>
             <tr>
@@ -148,11 +85,6 @@
             </tr>
           </thead>
           <tbody>
-<<<<<<< HEAD
-            <tr>
-=======
-          <tr>
->>>>>>> f747d85f355be59917444de1f953498c72ad896a
             <td>{{record.firstName}}</td>
             <td>{{record.lastName}}</td>
             <td>{{record.address}}</td>
@@ -160,27 +92,16 @@
             <td>{{record.state}}</td>
             <td>{{record.zip}}</td>
             <td>{{record.phone}}</td>
-            <td>{{record.github}}</td>
-            <td>{{record.twitter}}</td>
-<<<<<<< HEAD
-            <td>{{record.photo}}</td>
-            <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td>
-            </tr>
-=======
-            <td><img ng-src="record.photo"></td>
+            <td><a ng-href="https://github.com/{{record.github}}">{{record.github}}</a></td>
+            <td><a ng-href="https://twitter.com/{{record.twitter}}">@{{record.twitter}}</a></td>
+            <td><img ng-src="{{record.photo}}"></td>
             <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td>
           </tr>
->>>>>>> f747d85f355be59917444de1f953498c72ad896a
           </tbody>
         </table>
       </div>
       </li>
-<<<<<<< HEAD
-      </ul>
-    </div>
-=======
     </ul>
->>>>>>> f747d85f355be59917444de1f953498c72ad896a
   </div>
 </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
