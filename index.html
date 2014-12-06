@@ -39,25 +39,28 @@
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.zip}">
         <label class="control-label">Zip Code:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.zip" required />
+        <input class="form-control shorten" type ="text" maxlength="5" ng-model="addCtrl.newRecord.zip" required />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.phone}">
         <label class="control-label">Phone:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.phone" required />
+        <input class="form-control shorten" type ="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" required />
+      </div>
+      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.email}">
+        <label class="control-label">Email:</label>
+        <input class="form-control shorten" type ="email" ng-model="addCtrl.newRecord.email" placeholder="you@example.com" required />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.github}">
         <label class="control-label">Github:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.github" required />
+        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.github" placeholder="your username" required />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.twitter}">
         <label class="control-label">Twitter:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.twitter" required />
+        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.twitter" placeholder="your username" required />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
         <label class="control-label">Photo:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.photo" required />
+        <input class="form-control lengthen" type ="url" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
       </div>
-      
       <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
 
       <a href="#">Sort</a>
@@ -79,6 +82,7 @@
               <th>State</th>
               <th>Zip Code</th>
               <th>Phone</th>
+              <th>Email</th>
               <th>Github</th>
               <th>Twitter</th>
               <th>Photo</th>
@@ -92,6 +96,7 @@
             <td>{{record.state}}</td>
             <td>{{record.zip}}</td>
             <td>{{record.phone}}</td>
+            <td>{{record.email}}</td>
             <td><a ng-href="https://github.com/{{record.github}}">{{record.github}}</a></td>
             <td><a ng-href="https://twitter.com/{{record.twitter}}">@{{record.twitter}}</a></td>
             <td><img ng-src="{{record.photo}}"></td>

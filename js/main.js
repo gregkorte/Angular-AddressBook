@@ -13,7 +13,8 @@
 				city: "asdfasdf",
 				state: "sdf",
 				zip: "sdfsd",
-				phone: "asdf", 
+				phone: "asdf",
+				email: "jhgj",
 				github: "sdfdg", 
 				twitter: "dfg",
 				facebook: "dfgdfg",
@@ -26,12 +27,12 @@
 				city: "asdfsadf",
 				state: "asdf",
 				zip: "sdf",
-				phone: "gwt2345", 
+				phone: "gwt2345",
+				email: "jhgj",
 				github: "sdf", 
 				twitter: "aasdf",
 				facebook: "sdf",
 				photo: ""
-
 			},
 			{
         firstName: "Call",
@@ -40,19 +41,19 @@
 				city: "sdf",
 				state: "sdfsdf",
 				zip: "sdf",
-				phone: "sdf", 
+				phone: "sdf",
+				email: "jhgj", 
 				github: "sdf", 
 				twitter: "sdf",
 				facebook: "sdf",
 				photo: ""
-
 			}
 		]
     
     vm.recordIndex = [];
     
     vm.displayEntry = function(){
-    
+    	
     };
 
     vm.displayRecords = function(){
@@ -73,6 +74,8 @@
 			vm.records.splice(index,1);
 		};
 
-	}); 
+	});
+
+});
 
 }());
