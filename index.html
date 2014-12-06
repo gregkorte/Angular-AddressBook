@@ -12,6 +12,7 @@
 
   <div class="container" ng-controller="AddressController as addCtrl">
   <h1>Address Book</h1>
+  <div class="newRecord">
   <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
     <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
       <label class="control-label">First Name:</label>
@@ -64,40 +65,47 @@
     <input type="submit" value="Add Task" ng-disabled="addressForm.$invalid" />
 
     <a href="#">Sort</a>
-
   </form>
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
-        <th>Phone</th>
-        <th>Github</th>
-        <th>Twitter</th>
-        <th>Photo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="task in addCtrl.tasks">
-      <td>{{task.priority}}</td>
-      <td>{{task.name}}</td>
-      <td>{{task.desc}}</td>
-      <td>{{task.due | date:'date'}}</td>
-      <td>{{task.priority}}</td>
-      <td>{{task.name}}</td>
-      <td>{{task.desc}}</td>
-      <td>{{task.due | date:'date'}}</td>
-      <td><button ng-click="addCtrl.removeTask(task)">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <ul>
-    <li ng-repeat="record in addCtrl.records">{{ record.firstName }} {{ record.lastName }}</li>
-  </ul>
+  </div>
+  <div class="recordList">
+    <ul>
+      <li ng-repeat="record in addCtrl.records">{{ record.firstName }} {{ record.lastName }}
+      <div class="recordTable ">
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Phone</th>
+              <th>Github</th>
+              <th>Twitter</th>
+              <th>Photo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>{{record.firstName}}</td>
+            <td>{{record.lastName}}</td>
+            <td>{{record.address}}</td>
+            <td>{{record.city}}</td>
+            <td>{{record.state}}</td>
+            <td>{{record.zip}}</td>
+            <td>{{record.phone}}</td>
+            <td>{{record.github}}</td>
+            <td>{{record.twitter}}</td>
+            <td>{{record.photo}}</td>
+            <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </li>
+      </ul>
+    </div>
   </div>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
