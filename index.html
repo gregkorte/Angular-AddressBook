@@ -16,14 +16,15 @@
     <li><a ng-click="addCtrl.displayRecords()">Records</a></li>
   </ul>
   <div class="newRecord" ng-show="addCtrl.showEntry" class="ng-hide">
-    <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
-      <div class="form-group" ng-repeat="entry in addCtrl.fields" ng-class="{'has-error': !addCtrl.newRecord.{{entry[0]}}">
-        <label class="control-label">{{entry[1]}}</label>
-        <input class="form-control shorten" type="text" ng-model="addCtrl.newRecord.entry[0]" required />
-      </div>
+    <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()"  novalidate>
+    
+<!--      <div class="form-group" ng-repeat="field in addCtrl.fields" ng-class="{'has-error': !addCtrl.newRecord.{{field[0]}}"> 
+        <label class="control-label">{{field[1]}}</label>
+        <input class="form-control shorten" type="text" ng-model="newRecord.field[$index[0]]" required />
+      </div>  -->
 
 
-    <!--  <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
+      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
         <label class="control-label">First Name:</label>
         <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.firstName" required /> 
       </div>
@@ -49,7 +50,7 @@
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.phone}">
         <label class="control-label">Phone:</label>
-        <input class="form-control shorten" type ="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" required />
+        <input class="form-control shorten" type ="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.email}">
         <label class="control-label">Email:</label>
@@ -65,8 +66,8 @@
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
         <label class="control-label">Photo:</label>
-        <input class="form-control lengthen" type ="url" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
-      </div>  -->
+        <input class="form-control lengthen" type ="url" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" />
+      </div> 
       <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
 
       <a href="#">Sort</a>

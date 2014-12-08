@@ -3,16 +3,23 @@
 
 	angular.module('addBooApp', [//For importing other mods
 		])
+
+  
 	.controller('AddressController',[ '$http', function($http){
 		var vm = this;
 
-    $http.get('https://addressbookgsb.firebaseio.com/.json').success(function(data){
-      vm.records = data;
-    });
+    vm.getAddresses = function() {
+      $http.get('https://addressbookgsb.firebaseio.com/.json').success(function(data){
+        vm.records = data;
+      });
+    }
+
+
+    vm.getAddresses();
 
     vm.fields = [["firstName", "First Name:"], ["lastName", "Last Name:"], ["address", "Address:"], ["city", "City:"], ["state", "State:"], ["zip", "Zip Code:"], ["phone", "Phone:"], ["github", "Github:"], ["twitter", "Twitter:"], ["photo", "Photo:"]];
 
-
+   // vm.fields = [{ 1: "First Name:"}, { 2: "Last Name:"}, { 3: "Address:"}, { 4: "City:"}, { 5: "State:"}, { 6: "Zip Code:"}, { 7: "Phone:"}, { 8: "Github:"}, { 9: "Twitter:"}, { 10: "Photo:"}];
 
 
 
@@ -83,7 +90,11 @@
     };
 
 		vm.addNewRecord = function(){
-			vm.records.push(vm.newRecord);
+      $http.post('https://addressbookgsb.firebaseio.com/.json', vm.newRecord).success(function(data){
+        console.log(data);
+      
+      }).error(function(err){console.log(err)});
+      vm.getAddresses();
       vm.newRecord = {};
     };
 
@@ -92,5 +103,10 @@
 			vm.records.splice(index,1);
 		};
 
-	} ]); 
+	} ])
+ 
+  .controller('FieldGenerator', function(){
+  
+  });
+
 }());
