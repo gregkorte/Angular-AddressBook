@@ -43,7 +43,7 @@
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.phone}">
         <label class="control-label">Phone:</label>
-        <input class="form-control shorten" type ="tel" pattern="[\(]\d{3}[\)]\d{3}[\-]\d{4}" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" required />
+        <input class="form-control shorten" type ="tel" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" required />
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.email}">
         <label class="control-label">Email:</label>
@@ -59,7 +59,7 @@
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
         <label class="control-label">Photo:</label>
-        <input class="form-control lengthen" type ="url" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
+        <input class="form-control lengthen" type ="text" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
       </div>
       <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
 
@@ -69,7 +69,8 @@
   </div>
   <div class="recordList" >
     <ul>
-      <li ng-repeat="record in addCtrl.records" >
+      <li ng-repeat="(recordId, record) in addCtrl.records" >
+      <!-- <li ng-repeat="record in addCtrl.records" > -->
       <a ng-click="addCtrl.recordIndex[$index]=!addCtrl.recordIndex[$index]">{{ record.firstName }} {{ record.lastName }} </a>
       <div class="recordTable" ng-show="addCtrl.recordIndex[$index]" class="ng-hide">
         <table>
@@ -100,7 +101,8 @@
             <td><a ng-href="https://github.com/{{record.github}}">{{record.github}}</a></td>
             <td><a ng-href="https://twitter.com/{{record.twitter}}">@{{record.twitter}}</a></td>
             <td><img ng-src="{{record.photo}}"></td>
-            <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td>
+            <td><button ng-click="addCtrl.removeRecord(recordId)">Delete</button></td>
+            <!-- <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td> -->
           </tr>
           </tbody>
         </table>
