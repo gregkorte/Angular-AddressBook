@@ -17,9 +17,15 @@
   </ul>
   <div class="newRecord">
     <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
+      <div class="form-group" ng-repeat="entry in addCtrl.fields" ng-class="{'has-error': !addCtrl.newRecord.{{entry[0]}}">
+        <label class="control-label">{{entry[1]}}</label>
+        <input class="form-control shorten" type="text" ng-model="addCtrl.newRecord.entry" required />
+      </div>
+
+
+    <!--  <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
         <label class="control-label">First Name:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.firstName" required />
+        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.firstName" required /> 
       </div>
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.lastName}">
         <label class="control-label">Last Name:</label>
@@ -56,7 +62,9 @@
       <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
         <label class="control-label">Photo:</label>
         <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.photo" required />
-      </div>
+      </div> -->
+
+      
       <!-- <div class="form-group">
       <label class="control-label">City:</label><br />
       <select ng-model="addCtrl.newRecord.priority">

@@ -3,8 +3,11 @@
 
 	angular.module('addBooApp', [//For importing other mods
 		])
-	.controller('AddressController', function(){
+	.controller('AddressController',[ '$http', function($http){
 		var vm = this;
+
+    vm.fields = [["firstName", "First Name:"], ["lastName", "Last Name:"], ["address", "Address:"], ["city", "City:"], ["state", "State:"], ["zip", "Zip Code:"], ["phone", "Phone:"], ["github", "Github:"], ["twitter", "Twitter:"], ["photo", "Photo:"]];
+
 		vm.records = [
 			{
 				firstName: "Ali",
@@ -73,6 +76,6 @@
 			vm.records.splice(index,1);
 		};
 
-	}); 
+	} ]); 
 
 }());
