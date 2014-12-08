@@ -17,9 +17,12 @@ input {
 .shorten {
 	width: 200px;
 }
+.lengthen {
+	width: 300px;
+}
 table {
 	margin: 20px 0;
-  
+
 }
 th, td {
 	width: 150px;
