@@ -9,111 +9,37 @@
   <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-<div class="container" ng-controller="AddressController as addCtrl">
+<div class="container">
   <h1>Address Book</h1>
-  <ul id="main-nav">
-    <li><a ng-click="addCtrl.displayEntry()">New Entry</a></li>
-    <li><a ng-click="addCtrl.displayRecords()">Records</a></li>
-  </ul>
-  <div class="newRecord">
-    <form name="addressForm" ng-submit="addressForm.$valid && addCtrl.addNewRecord()" novalidate>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.firstName}">
-        <label class="control-label">First Name:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.firstName" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.lastName}">
-        <label class="control-label">Last Name:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.lastName" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.address}">
-        <label class="control-label">Address:</label>
-        <input class="form-control" type ="text" ng-model="addCtrl.newRecord.address" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.city}">
-        <label class="control-label">City:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.city" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.state}">
-        <label class="control-label">State:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.state" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.zip}">
-        <label class="control-label">Zip Code:</label>
-        <input class="form-control shorten" type ="text" maxlength="5" ng-model="addCtrl.newRecord.zip" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.phone}">
-        <label class="control-label">Phone:</label>
-        <input class="form-control shorten" type ="tel" placeholder="(xxx)xxx-xxxx" ng-model="addCtrl.newRecord.phone" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.email}">
-        <label class="control-label">Email:</label>
-        <input class="form-control shorten" type ="email" ng-model="addCtrl.newRecord.email" placeholder="you@example.com" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.github}">
-        <label class="control-label">Github:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.github" placeholder="your username" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.twitter}">
-        <label class="control-label">Twitter:</label>
-        <input class="form-control shorten" type ="text" ng-model="addCtrl.newRecord.twitter" placeholder="your username" required />
-      </div>
-      <div class="form-group" ng-class="{'has-error': !addCtrl.newRecord.photo}">
-        <label class="control-label">Photo:</label>
-        <input class="form-control lengthen" type ="text" ng-model="addCtrl.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
-      </div>
-      <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
-
-      <a href="#">Sort</a>
-
-    </form>
-  </div>
-  <div class="recordList" >
-    <ul>
-      <li ng-repeat="(recordId, record) in addCtrl.records" >
-      <!-- <li ng-repeat="record in addCtrl.records" > -->
-      <a ng-click="addCtrl.recordIndex[$index]=!addCtrl.recordIndex[$index]">{{ record.firstName }} {{ record.lastName }} </a>
-      <div class="recordTable" ng-show="addCtrl.recordIndex[$index]" class="ng-hide">
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Zip Code</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Github</th>
-              <th>Twitter</th>
-              <th>Photo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <td>{{record.firstName}}</td>
-            <td>{{record.lastName}}</td>
-            <td>{{record.address}}</td>
-            <td>{{record.city}}</td>
-            <td>{{record.state}}</td>
-            <td>{{record.zip}}</td>
-            <td>{{record.phone}}</td>
-            <td>{{record.email}}</td>
-            <td><a ng-href="https://github.com/{{record.github}}">{{record.github}}</a></td>
-            <td><a ng-href="https://twitter.com/{{record.twitter}}">@{{record.twitter}}</a></td>
-            <td><img ng-src="{{record.photo}}"></td>
-            <td><button ng-click="addCtrl.removeRecord(recordId)">Delete</button></td>
-            <!-- <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td> -->
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      </li>
-    </ul>
+  <div class="buttonContainer">
+    <a class="btn btn-primary" href="/#/new">New Contact</a>
+    <a class="btn btn-primary" href="/#/">Contacts</a>
+    <a class="btn btn-primary" href="/#/record">Record Data</a>
+    <div ng-view></div>
   </div>
 </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
+
+<!--<div class="container">
+  <h1>Address Book</h1>
+  <ul id="main-nav">
+    <li><a ng-click="addCtrl.displayEntry()">New Entry</a></li>
+    <li><a ng-click="addCtrl.displayRecords()">Records</a></li>
+  </ul>
+  <div class="newRecord" ng-show="addCtrl.showEntry" class="ng-hide">
+
+  </div>
+  <div class="recordList" ng-show="addCtrl.showRecords" class="ng-hide">
+    <ul>
+      <li ng-repeat="(recordId, record) in addCtrl.records" >
+      /// <li ng-repeat="record in addCtrl.records" > ///
+      </li>
+    </ul>
+  </div>
+</div> -->
