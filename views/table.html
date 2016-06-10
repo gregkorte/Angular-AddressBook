@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Github</th>
+      <th>Twitter</th>
+      <th>Photo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td>{{add.record.firstName}}</td>
+    <td>{{record.lastName}}</td>
+    <td>{{record.address}}</td>
+    <td>{{record.city}}</td>
+    <td>{{record.state}}</td>
+    <td>{{record.zip}}</td>
+    <td>{{record.phone}}</td>
+    <td>{{record.email}}</td>
+    <td><a ng-href="https://github.com/{{record.github}}">{{record.github}}</a></td>
+    <td><a ng-href="https://twitter.com/{{record.twitter}}">@{{record.twitter}}</a></td>
+    <td><img ng-src="{{record.photo}}"></td>
+    <td><button ng-click="add.removeRecord(recordId)">Delete</button></td>
+    <!-- <td><button ng-click="addCtrl.removeRecord(record)">Delete</button></td> -->
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,8 @@
+<ul>
+  <li ng-repeat="(recordId, record) in add.records" >
+  	<a href="/#/{{recordId}}">{{ record.firstName }} {{ record.lastName }} </a>
+  	<a class="btn btn-primary" href="/#/{{recordId}}/edit">Edit</a>
+  	<button class="btn btn-primary" ng-click="add.removeRecord(recordId)">Delete</button>
+		<!-- <a ng-click="add.recordIndex[$index]=!add.recordIndex[$index]">{{ record.firstName }} {{ record.lastName }} </a> -->
+  </li>
+</ul>

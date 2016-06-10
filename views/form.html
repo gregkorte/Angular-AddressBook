@@ -1,0 +1,47 @@
+<form name="addressForm" ng-submit="addressForm.$valid && add.addNewRecord()"  novalidate>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.firstName}">
+    <label class="control-label">First Name:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.firstName" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.lastName}">
+    <label class="control-label">Last Name:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.lastName" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.address}">
+    <label class="control-label">Address:</label>
+    <input class="form-control" type ="text" ng-model="add.newRecord.address" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.city}">
+    <label class="control-label">City:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.city" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.state}">
+    <label class="control-label">State:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.state" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.zip}">
+    <label class="control-label">Zip Code:</label>
+    <input class="form-control shorten" type ="text" maxlength="5" ng-model="add.newRecord.zip" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.phone}">
+    <label class="control-label">Phone:</label>
+    <input class="form-control shorten" type ="tel" placeholder="(xxx)xxx-xxxx" ng-model="add.newRecord.phone" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.email}">
+    <label class="control-label">Email:</label>
+    <input class="form-control shorten" type ="email" ng-model="add.newRecord.email" placeholder="you@example.com" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.github}">
+    <label class="control-label">Github:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.github" placeholder="your username" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.twitter}">
+    <label class="control-label">Twitter:</label>
+    <input class="form-control shorten" type ="text" ng-model="add.newRecord.twitter" placeholder="your username" required />
+  </div>
+  <div class="form-group" ng-class="{'has-error': !add.newRecord.photo}">
+    <label class="control-label">Photo:</label>
+    <input class="form-control lengthen" type ="text" ng-model="add.newRecord.photo" placeholder="https://myurl.com/myphoto.png" required />
+  </div>
+  <input type="submit" value="Add Record" ng-disabled="addressForm.$invalid" />
+</form>
